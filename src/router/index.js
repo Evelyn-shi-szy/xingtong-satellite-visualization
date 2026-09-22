@@ -1,14 +1,14 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import HomeView from '../views/HomeView.vue'
 import VisualizeView from '../views/VisualizeView.vue'
 
 Vue.use(VueRouter)
 
+// 全站只保留卫星可视化页面，根地址自动进入该页面。
 const routes = [
-  { path: '/', name: 'home', component: HomeView, meta: { title: '首页' } },
+  { path: '/', redirect: '/visualize' },
   { path: '/visualize', name: 'visualize', component: VisualizeView, meta: { title: '卫星可视化' } },
-  { path: '*', redirect: '/' }
+  { path: '*', redirect: '/visualize' }
 ]
 
 const router = new VueRouter({
@@ -20,7 +20,7 @@ const router = new VueRouter({
 })
 
 router.afterEach((to) => {
-  document.title = `${to.meta.title || '首页'} | 星瞳`
+  document.title = `${to.meta.title || '卫星可视化'} | 星瞳`
 })
 
 export default router

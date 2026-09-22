@@ -6,14 +6,13 @@
         <h1>卫星可视化</h1>
         <p>点击三维场景中的卫星点，或使用左侧列表选择卫星；页面会显示它的信息和一条完整轨道。</p>
       </div>
-      <router-link class="back-link" to="/">返回首页</router-link>
     </div>
 
     <div class="visualize-layout">
       <aside class="control-panel">
         <div class="panel-heading">
           <div><strong>卫星列表</strong><small>{{ satellites.length }} 个本地对象</small></div>
-          <span class="panel-live"><i></i>LOCAL TLE</span>
+          <span class="panel-live"><i></i>REAL-TIME</span>
         </div>
 
         <div class="satellite-switcher">
@@ -42,13 +41,6 @@
             <div><span>当前经度</span><strong>{{ currentPosition.longitude }}</strong></div>
             <div><span>当前纬度</span><strong>{{ currentPosition.latitude }}</strong></div>
             <div><span>轨道高度</span><strong>{{ currentPosition.height }}</strong></div>
-          </div>
-
-          <div class="tle-box">
-            <span>TLE 第一行</span>
-            <code>{{ selectedSatellite.tle1 }}</code>
-            <span>TLE 第二行</span>
-            <code>{{ selectedSatellite.tle2 }}</code>
           </div>
         </div>
       </aside>
@@ -389,21 +381,6 @@ export default {
   font-size: 13px;
 }
 
-.back-link {
-  flex: 0 0 auto;
-  padding: 10px 14px;
-  color: #8fb0c4;
-  border: 1px solid rgba(98, 243, 255, .16);
-  border-radius: 9px;
-  font-size: 12px;
-  background: rgba(6, 18, 32, .65);
-}
-
-.back-link:hover {
-  color: #62f3ff;
-  border-color: rgba(98, 243, 255, .45);
-}
-
 .visualize-layout {
   display: grid;
   grid-template-columns: 340px minmax(0, 1fr);
@@ -587,8 +564,7 @@ export default {
   background: rgba(3, 11, 21, .65);
 }
 
-.coordinate-grid span,
-.tle-box > span {
+.coordinate-grid span {
   display: block;
   margin-bottom: 4px;
   color: #58798f;
@@ -599,26 +575,6 @@ export default {
   color: #dffcff;
   font-size: 11px;
   font-weight: 500;
-}
-
-.tle-box {
-  padding: 12px;
-  border: 1px solid rgba(98, 243, 255, .1);
-  border-radius: 10px;
-  background: rgba(2, 8, 16, .78);
-}
-
-.tle-box > span:not(:first-child) {
-  margin-top: 11px;
-}
-
-.tle-box code {
-  display: block;
-  overflow-wrap: anywhere;
-  color: #8ce6ef;
-  font-family: Consolas, "Courier New", monospace;
-  font-size: 9px;
-  line-height: 1.6;
 }
 
 .map-panel {

@@ -1,7 +1,7 @@
 <template>
   <header class="site-header">
     <div class="header-inner">
-      <router-link to="/" class="brand" aria-label="星瞳首页">
+      <router-link to="/visualize" class="brand" aria-label="星瞳卫星可视化首页">
         <span class="brand-mark" aria-hidden="true">
           <span class="brand-core"></span>
           <span class="brand-orbit"></span>
@@ -12,11 +12,6 @@
           <small>卫星可视化浏览平台</small>
         </span>
       </router-link>
-
-      <nav class="main-nav" aria-label="主导航">
-        <router-link to="/">首页</router-link>
-        <router-link to="/visualize">卫星可视化</router-link>
-      </nav>
     </div>
   </header>
 </template>
@@ -40,7 +35,6 @@ export default { name: 'AppHeader' }
 .header-inner {
   display: flex;
   align-items: center;
-  justify-content: space-between;
   width: min(1440px, calc(100% - 48px));
   height: 76px;
   margin: 0 auto;
@@ -110,39 +104,6 @@ export default { name: 'AppHeader' }
   letter-spacing: .08em;
 }
 
-.main-nav {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.main-nav a {
-  position: relative;
-  padding: 27px 18px 26px;
-  color: #8da9bf;
-  font-size: 14px;
-}
-
-.main-nav a::after {
-  content: "";
-  position: absolute;
-  right: 18px;
-  bottom: 0;
-  left: 18px;
-  height: 2px;
-  background: transparent;
-}
-
-.main-nav a:hover,
-.main-nav a.router-link-exact-active {
-  color: #62f3ff;
-}
-
-.main-nav a.router-link-exact-active::after {
-  background: #62f3ff;
-  box-shadow: 0 0 10px rgba(98, 243, 255, .6);
-}
-
 @media (max-width: 720px) {
   .header-inner {
     width: calc(100% - 28px);
@@ -151,10 +112,6 @@ export default { name: 'AppHeader' }
 
   .brand-text small {
     display: none;
-  }
-
-  .main-nav a {
-    padding: 22px 10px 21px;
   }
 }
 </style>
