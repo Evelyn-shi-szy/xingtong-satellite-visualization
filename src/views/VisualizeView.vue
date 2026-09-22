@@ -35,14 +35,19 @@
         </div>
       </article>
     </section>
+
+    <!-- 页面底部单独显示 Cesium 三维地球和四颗卫星轨道。 -->
+    <SatelliteOrbit3D />
   </div>
 </template>
 
 <script>
 import satellites from '../data/satellites'
+import SatelliteOrbit3D from '../components/SatelliteOrbit3D.vue'
 
 export default {
   name: 'VisualizeView',
+  components: { SatelliteOrbit3D },
   data() {
     return { satellites }
   },
@@ -56,33 +61,34 @@ export default {
 </script>
 
 <style scoped>
+/* 上方卫星信息区：使用白底、深色文字和浅灰边框。 */
 .visualize-view { display: flex; flex-direction: column; gap: 18px; }
-.heading span { color: #62f3ff; font-size: 10px; letter-spacing: .2em; }
-.heading h1 { margin: 8px 0; color: #f2fcff; font-size: 34px; }
-.heading p { margin: 0; color: #7997ad; font-size: 13px; }
+.heading span { color: #2563eb; font-size: 10px; letter-spacing: .2em; }
+.heading h1 { margin: 8px 0; color: #111827; font-size: 34px; }
+.heading p { margin: 0; color: #667085; font-size: 13px; }
 
-.satellite-nav { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; padding: 12px; border: 1px solid #17384a; border-radius: 14px; background: #071321; }
-.satellite-nav button { padding: 12px; color: #dffcff; border: 1px solid #17384a; border-radius: 8px; background: #0a1a2a; cursor: pointer; }
-.satellite-nav button:hover { background: #123047; }
+.satellite-nav { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; padding: 12px; border: 1px solid #dfe5ec; border-radius: 14px; background: #ffffff; }
+.satellite-nav button { padding: 12px; color: #1f2937; border: 1px solid #dfe5ec; border-radius: 8px; background: #ffffff; cursor: pointer; }
+.satellite-nav button:hover { background: #eff6ff; border-color: #93c5fd; }
 .satellite-nav i { display: inline-block; width: 8px; height: 8px; margin-right: 7px; border-radius: 50%; }
 
 .satellite-list { display: flex; flex-direction: column; gap: 16px; }
-.satellite-card { display: grid; grid-template-columns: 280px 1fr; min-height: 250px; padding: 22px; border: 1px solid #17384a; border-radius: 14px; background: #071321; scroll-margin-top: 100px; }
+.satellite-card { display: grid; grid-template-columns: 280px 1fr; min-height: 250px; padding: 22px; border: 1px solid #dfe5ec; border-radius: 14px; background: #ffffff; scroll-margin-top: 100px; box-shadow: 0 8px 24px rgba(15, 23, 42, .05); }
 .orbit-box { position: relative; display: flex; align-items: center; justify-content: center; }
-.earth { display: flex; align-items: center; justify-content: center; width: 90px; height: 90px; color: #bffaff; border-radius: 50%; background: #0d5272; box-shadow: 0 0 25px #0d5272; }
-.orbit { position: absolute; width: 210px; height: 105px; border: 1px solid #4a829b; border-radius: 50%; transform: rotate(-20deg); }
+.earth { display: flex; align-items: center; justify-content: center; width: 90px; height: 90px; color: #ffffff; border-radius: 50%; background: #2f7ca8; box-shadow: 0 0 24px rgba(47, 124, 168, .35); }
+.orbit { position: absolute; width: 210px; height: 105px; border: 1px solid #7aa9bd; border-radius: 50%; transform: rotate(-20deg); }
 .orbit i { position: absolute; top: 42px; left: -5px; width: 11px; height: 11px; border-radius: 50%; animation: satelliteMove 5s linear infinite; }
 @keyframes satelliteMove { 50% { left: 204px; } }
 
 .info { padding: 15px; }
 .info > span { font-size: 11px; font-weight: bold; }
-.info h2 { margin: 7px 0 10px; color: #f2fcff; font-size: 24px; }
-.info p { color: #7997ad; font-size: 12px; line-height: 1.8; }
+.info h2 { margin: 7px 0 10px; color: #111827; font-size: 24px; }
+.info p { color: #667085; font-size: 12px; line-height: 1.8; }
 .params { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-top: 18px; }
-.params div { padding: 11px; border: 1px solid #17384a; border-radius: 7px; background: #091827; }
+.params div { padding: 11px; border: 1px solid #dfe5ec; border-radius: 7px; background: #f8fafc; }
 .params small, .params strong { display: block; }
-.params small { margin-bottom: 5px; color: #64869b; }
-.params strong { color: #dffcff; font-size: 12px; }
+.params small { margin-bottom: 5px; color: #667085; }
+.params strong { color: #1f2937; font-size: 12px; }
 
 @media (max-width: 800px) {
   .satellite-nav, .params { grid-template-columns: repeat(2, 1fr); }

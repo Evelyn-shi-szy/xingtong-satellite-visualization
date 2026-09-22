@@ -8,13 +8,16 @@
     "build": "vue-cli-service build"
   },
   "dependencies": {
+    "cesium": "^1.124.0",
     "core-js": "^3.37.1",
+    "satellite.js": "^5.0.0",
     "vue": "^2.7.16",
     "vue-router": "^3.6.5"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~5.0.8",
     "@vue/cli-service": "~5.0.8",
+    "copy-webpack-plugin": "^11.0.0",
     "vue-template-compiler": "^2.7.16"
   },
   "engines": {

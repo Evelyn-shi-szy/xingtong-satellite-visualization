@@ -1,14 +1,12 @@
 <!--
   [文件说明]
   文件作用：全站顶部品牌栏。
-  说明：本项目只保留卫星可视化页面，因此导航栏不设置多个页面入口。
+  样式说明：使用纯白背景、深色文字和浅灰边框。
 -->
 <template>
   <header class="site-header">
-    <!-- 点击品牌可以回到唯一的卫星可视化页面。 -->
     <div class="header-inner">
       <router-link to="/visualize" class="brand" aria-label="星瞳修改版可视化浏览平台首页">
-        <!-- 使用普通 HTML 与 CSS 绘制卫星标志，不依赖图片文件。 -->
         <span class="brand-mark" aria-hidden="true">
           <span class="brand-core"></span>
           <span class="brand-orbit"></span>
@@ -24,21 +22,18 @@
 </template>
 
 <script>
-// 顶部栏只展示品牌，不需要额外的数据或方法。
 export default { name: 'AppHeader' }
 </script>
 
 <style scoped>
-/* 固定顶部栏，并使用半透明背景和模糊效果。 */
 .site-header {
   position: fixed;
   top: 0;
   left: 0;
   z-index: 100;
   width: 100%;
-  border-bottom: 1px solid rgba(98, 243, 255, .14);
-  background: rgba(3, 10, 20, .86);
-  backdrop-filter: blur(16px);
+  border-bottom: 1px solid #e5e7eb;
+  background: #ffffff;
 }
 
 .header-inner {
@@ -55,7 +50,6 @@ export default { name: 'AppHeader' }
   gap: 12px;
 }
 
-/* 品牌标志由核心星球、运行轨道和卫星点三部分组成。 */
 .brand-mark {
   position: relative;
   display: block;
@@ -70,8 +64,8 @@ export default { name: 'AppHeader' }
   width: 18px;
   height: 18px;
   border-radius: 50%;
-  background: radial-gradient(circle at 35% 30%, #d5fdff, #22b8e6 45%, #075b8e 75%);
-  box-shadow: 0 0 18px rgba(98, 243, 255, .7);
+  background: radial-gradient(circle at 35% 30%, #d8f3ff, #4aa8d8 45%, #16658f 75%);
+  box-shadow: 0 0 12px rgba(37, 99, 235, .25);
 }
 
 .brand-orbit {
@@ -80,7 +74,7 @@ export default { name: 'AppHeader' }
   left: 1px;
   width: 40px;
   height: 10px;
-  border: 1px solid rgba(120, 239, 255, .8);
+  border: 1px solid #4f9fc7;
   border-radius: 50%;
   transform: rotate(-25deg);
 }
@@ -92,8 +86,8 @@ export default { name: 'AppHeader' }
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: #ffffff;
-  box-shadow: 0 0 10px #62f3ff;
+  background: #2563eb;
+  box-shadow: 0 0 7px rgba(37, 99, 235, .5);
 }
 
 .brand-text {
@@ -102,20 +96,19 @@ export default { name: 'AppHeader' }
 }
 
 .brand-text strong {
-  color: #f3fcff;
+  color: #111827;
   font-size: 22px;
   letter-spacing: .18em;
 }
 
 .brand-text small {
   margin-top: 3px;
-  color: #6f91aa;
+  color: #667085;
   font-size: 11px;
   letter-spacing: .08em;
 }
 
 @media (max-width: 720px) {
-  /* 手机端缩短顶部栏，并隐藏较长的副标题。 */
   .header-inner {
     width: calc(100% - 28px);
     height: 66px;

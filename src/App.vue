@@ -4,7 +4,7 @@
 -->
 <template>
   <div id="app">
-    <!-- 纯 CSS 星空背景。 -->
+    <!-- 纯白页面背景。 -->
     <div class="space-bg" aria-hidden="true"></div>
     <app-header />
     <main class="page-shell">

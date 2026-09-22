@@ -1,6 +1,7 @@
 <!--
   [文件说明]
-  文件作用：页面底部说明栏，展示项目名称、数据说明和技术栈。
+  文件作用：页面底部说明栏。
+  样式说明：与纯白页面保持一致，使用深色文字和浅灰边框。
 -->
 <template>
   <footer class="site-footer">
@@ -10,20 +11,19 @@
         <span>修改版可视化浏览平台</span>
       </div>
       <p>课程实践项目 · 页面数据仅用于卫星信息展示</p>
-      <p>Vue · HTML · CSS</p>
+      <p>Vue · HTML · CSS · Cesium</p>
     </div>
   </footer>
 </template>
 
 <script>
-// 页脚只展示静态说明，因此不需要业务逻辑。
 export default { name: 'AppFooter' }
 </script>
 
 <style scoped>
 .site-footer {
-  border-top: 1px solid rgba(98, 243, 255, .1);
-  background: rgba(2, 7, 15, .82);
+  border-top: 1px solid #e5e7eb;
+  background: #ffffff;
 }
 
 .footer-inner {
@@ -34,7 +34,7 @@ export default { name: 'AppFooter' }
   width: min(1440px, calc(100% - 48px));
   min-height: 76px;
   margin: 0 auto;
-  color: #6f8aa0;
+  color: #667085;
   font-size: 12px;
 }
 
@@ -45,7 +45,7 @@ export default { name: 'AppFooter' }
 }
 
 .footer-brand strong {
-  color: #dffcff;
+  color: #111827;
   font-size: 18px;
   letter-spacing: .14em;
 }
@@ -55,7 +55,6 @@ export default { name: 'AppFooter' }
 }
 
 @media (max-width: 760px) {
-  /* 小屏幕下页脚改为纵向排列，避免文字拥挤。 */
   .footer-inner {
     align-items: flex-start;
     flex-direction: column;

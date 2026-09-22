@@ -1,7 +1,59 @@
-// 卫星演示数据：只保存页面要展示的基础参数，不请求接口、不做复杂轨道计算。
+// 卫星演示数据：上方信息卡显示基础参数，下面 3D 区块使用 TLE 计算并绘制轨道。
 export default [
-  { id: 1, shortName: 'CSS', name: '中国空间站', type: '载人空间站', altitude: '约 390 km', inclination: '41.5°', period: '约 92 分钟', status: '在轨运行', color: '#62f3ff', description: '近地轨道载人空间站，用于空间科学实验和航天员长期驻留。' },
-  { id: 2, shortName: 'ISS', name: '国际空间站', type: '载人空间站', altitude: '约 420 km', inclination: '51.6°', period: '约 93 分钟', status: '在轨运行', color: '#ffd166', description: '多国合作建设的近地轨道空间站，主要开展微重力科学实验。' },
-  { id: 3, shortName: 'HST', name: '哈勃空间望远镜', type: '空间望远镜', altitude: '约 540 km', inclination: '28.5°', period: '约 95 分钟', status: '在轨运行', color: '#ae8cff', description: '位于地球大气层外的空间望远镜，用于天文观测和宇宙研究。' },
-  { id: 4, shortName: 'FY-3F', name: '风云三号 F 星', type: '气象卫星', altitude: '约 830 km', inclination: '98.7°', period: '约 101 分钟', status: '在轨运行', color: '#7ef29d', description: '太阳同步轨道气象卫星，用于获取全球大气、地表和海洋观测数据。' }
+  {
+    id: 1,
+    shortName: 'CSS',
+    name: '中国空间站',
+    type: '载人空间站',
+    altitude: '约 390 km',
+    inclination: '41.5°',
+    period: '约 92 分钟',
+    status: '在轨运行',
+    color: '#62f3ff',
+    description: '近地轨道载人空间站，用于空间科学实验和航天员长期驻留。',
+    tle1: '1 48274U 21035A   25315.32537269  .00030261  00000+0  36324-3 0  9999',
+    tle2: '2 48274  41.4700 195.7222 0005200 218.1200 141.8900 15.61000000 30000'
+  },
+  {
+    id: 2,
+    shortName: 'ISS',
+    name: '国际空间站',
+    type: '载人空间站',
+    altitude: '约 420 km',
+    inclination: '51.6°',
+    period: '约 93 分钟',
+    status: '在轨运行',
+    color: '#ffd166',
+    description: '多国合作建设的近地轨道空间站，主要开展微重力科学实验。',
+    tle1: '1 25544U 98067A   25315.51846080  .00015496  00000+0  27781-3 0  9997',
+    tle2: '2 25544  51.6371 184.2118 0004414 235.8284 124.1974 15.50140675529911'
+  },
+  {
+    id: 3,
+    shortName: 'HST',
+    name: '哈勃空间望远镜',
+    type: '空间望远镜',
+    altitude: '约 540 km',
+    inclination: '28.5°',
+    period: '约 95 分钟',
+    status: '在轨运行',
+    color: '#ae8cff',
+    description: '位于地球大气层外的空间望远镜，用于天文观测和宇宙研究。',
+    tle1: '1 20580U 90037B   25315.13274128  .00002141  00000+0  12290-3 0  9993',
+    tle2: '2 20580  28.4698  76.1832 0002910  72.0100 288.1265 15.11573173999999'
+  },
+  {
+    id: 4,
+    shortName: 'FY-3F',
+    name: '风云三号 F 星',
+    type: '气象卫星',
+    altitude: '约 830 km',
+    inclination: '98.7°',
+    period: '约 101 分钟',
+    status: '在轨运行',
+    color: '#7ef29d',
+    description: '太阳同步轨道气象卫星，用于获取全球大气、地表和海洋观测数据。',
+    tle1: '1 57490U 23103A   25315.59493180  .00000425  00000+0  16230-3 0  9994',
+    tle2: '2 57490  98.7096 207.1160 0001240 172.2000 187.9100 14.21110000100000'
+  }
 ]
