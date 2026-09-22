@@ -11,7 +11,7 @@
         <span>修改版可视化浏览平台</span>
       </div>
       <p>课程实践项目 · 页面数据仅用于卫星信息展示</p>
-      <p>Vue · HTML · CSS · Cesium</p>
+      <p>Vue · Cesium · satellite.js</p>
     </div>
   </footer>
 </template>

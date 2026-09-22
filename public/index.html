@@ -1,21 +1,22 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <meta name="theme-color" content="#ffffff">
-  <link rel="icon" href="<%= BASE_URL %>favicon.svg">
-  <!-- Cesium 控件样式和运行资源。 -->
-  <link rel="stylesheet" href="<%= BASE_URL %>cesium/Widgets/widgets.css">
-  <title>星瞳——卫星可视化浏览平台</title>
-</head>
-<body>
-  <noscript>本平台需要启用 JavaScript 才能运行。</noscript>
-  <div id="app"></div>
-  <script>
-    // 告诉 Cesium 从哪里加载 Workers、Assets 等静态资源。
-    window.CESIUM_BASE_URL = '<%= BASE_URL %>cesium/'
-  </script>
-  <script src="<%= BASE_URL %>cesium/Cesium.js"></script>
-</body>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta name="theme-color" content="#ffffff">
+    <meta name="description" content="星瞳——卫星信息与轨道可视化课程项目">
+    <link rel="icon" href="<%= BASE_URL %>favicon.svg">
+    <link rel="stylesheet" href="<%= BASE_URL %>cesium/Widgets/widgets.css">
+    <title>星瞳 | 卫星可视化浏览平台</title>
+  </head>
+  <body>
+    <noscript>本平台需要启用 JavaScript 才能运行。</noscript>
+    <div id="app"></div>
+    <script>
+      // Cesium 通过该变量查找 Workers、Assets 等本地静态资源。
+      window.CESIUM_BASE_URL = '<%= BASE_URL %>cesium/'
+    </script>
+    <script src="<%= BASE_URL %>cesium/Cesium.js"></script>
+  </body>
 </html>

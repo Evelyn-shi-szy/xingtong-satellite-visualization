@@ -1,14 +1,14 @@
 {
-  "name": "xingtong-modified-visualization-platform",
+  "name": "xingtong-satellite-visualization",
   "version": "1.0.0",
   "private": true,
-  "description": "星瞳——简易卫星可视化课程项目",
+  "description": "星瞳——卫星信息与轨道可视化课程项目",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build"
   },
   "dependencies": {
-    "cesium": "^1.124.0",
+    "cesium": "1.124.0",
     "core-js": "^3.37.1",
     "satellite.js": "^5.0.0",
     "vue": "^2.7.16",
