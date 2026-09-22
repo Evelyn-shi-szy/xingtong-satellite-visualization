@@ -1,35 +1,28 @@
-<!--
-  [课程项目注释]
-  文件作用：全站顶部导航，使用 router-link 与 Element UI 菜单切换两个页面。
-  引用知识：Vue 组件、Element UI 水平菜单、Vue Router 导航、响应式 CSS。
-  参考资料：Vue Router 3 官方文档、Element UI Menu 组件文档、MDN CSS。
--->
 <template>
   <header class="site-header">
     <div class="header-inner">
-      <router-link to="/imagery" class="brand" aria-label="返回影像浏览页">
+      <router-link to="/" class="brand" aria-label="星瞳首页">
         <span class="brand-mark" aria-hidden="true">
           <span class="brand-core"></span>
           <span class="brand-orbit"></span>
           <span class="brand-satellite"></span>
         </span>
-        <span>
+        <span class="brand-text">
           <strong>星瞳</strong>
-          <small>卫星影像可视化浏览平台</small>
+          <small>卫星可视化浏览平台</small>
         </span>
       </router-link>
 
-      <!-- Element UI Menu 开启 router 后，index 可以直接对应 Vue Router 路径。 -->
-      <el-menu class="main-menu" mode="horizontal" router>
-        <el-menu-item index="/imagery">影像浏览</el-menu-item>
-        <el-menu-item index="/satellite">卫星信息</el-menu-item>
-      </el-menu>
+      <nav class="main-nav" aria-label="主导航">
+        <router-link to="/">首页</router-link>
+        <router-link to="/visualize">卫星可视化</router-link>
+      </nav>
     </div>
   </header>
 </template>
 
 <script>
-// 导航状态主要由 Vue Router 和 Element UI 菜单自身维护，因此组件逻辑保持简单。
+export default { name: 'AppHeader' }
 </script>
 
 <style scoped>
@@ -39,8 +32,8 @@
   left: 0;
   z-index: 100;
   width: 100%;
-  border-bottom: 1px solid rgba(0, 229, 255, .14);
-  background: rgba(4, 13, 24, .82);
+  border-bottom: 1px solid rgba(98, 243, 255, .14);
+  background: rgba(3, 10, 20, .86);
   backdrop-filter: blur(16px);
 }
 
@@ -57,25 +50,6 @@
   display: flex;
   align-items: center;
   gap: 12px;
-  min-width: 230px;
-}
-
-.brand>span:last-child {
-  display: flex;
-  flex-direction: column;
-}
-
-.brand strong {
-  color: #f3fcff;
-  font-size: 22px;
-  letter-spacing: .18em;
-}
-
-.brand small {
-  margin-top: 3px;
-  color: #6f91aa;
-  font-size: 11px;
-  letter-spacing: .08em;
 }
 
 .brand-mark {
@@ -92,8 +66,8 @@
   width: 18px;
   height: 18px;
   border-radius: 50%;
-  background: radial-gradient(circle at 35% 30%, #bffbff, #00a8ff 38%, #005c9e 72%);
-  box-shadow: 0 0 18px rgba(0, 229, 255, .85);
+  background: radial-gradient(circle at 35% 30%, #d5fdff, #22b8e6 45%, #075b8e 75%);
+  box-shadow: 0 0 18px rgba(98, 243, 255, .7);
 }
 
 .brand-orbit {
@@ -114,63 +88,73 @@
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: #fff;
-  box-shadow: 0 0 10px #00e5ff;
+  background: #ffffff;
+  box-shadow: 0 0 10px #62f3ff;
 }
 
-.main-menu.el-menu {
-  border-bottom: 0;
-  background: transparent;
+.brand-text {
+  display: flex;
+  flex-direction: column;
 }
 
-.main-menu .el-menu-item {
-  height: 76px;
-  padding: 0 20px;
+.brand-text strong {
+  color: #f3fcff;
+  font-size: 22px;
+  letter-spacing: .18em;
+}
+
+.brand-text small {
+  margin-top: 3px;
+  color: #6f91aa;
+  font-size: 11px;
+  letter-spacing: .08em;
+}
+
+.main-nav {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.main-nav a {
+  position: relative;
+  padding: 27px 18px 26px;
   color: #8da9bf;
-  border-bottom: 2px solid transparent;
   font-size: 14px;
 }
 
-.main-menu .el-menu-item:hover,
-.main-menu .el-menu-item:focus {
-  color: #dffcff;
-  background: rgba(0, 229, 255, .04);
+.main-nav a::after {
+  content: "";
+  position: absolute;
+  right: 18px;
+  bottom: 0;
+  left: 18px;
+  height: 2px;
+  background: transparent;
 }
 
-.main-menu .el-menu-item.is-active {
-  color: #00e5ff;
-  border-bottom-color: #00e5ff;
-  background: linear-gradient(to top, rgba(0, 229, 255, .1), transparent 70%);
+.main-nav a:hover,
+.main-nav a.router-link-exact-active {
+  color: #62f3ff;
 }
 
-@media (max-width: 900px) {
+.main-nav a.router-link-exact-active::after {
+  background: #62f3ff;
+  box-shadow: 0 0 10px rgba(98, 243, 255, .6);
+}
+
+@media (max-width: 720px) {
   .header-inner {
-    align-items: flex-start;
-    flex-direction: column;
     width: calc(100% - 28px);
-    height: auto;
-    padding-top: 12px;
+    height: 66px;
   }
 
-  .brand {
-    min-width: 0;
-  }
-
-  .brand small {
+  .brand-text small {
     display: none;
   }
 
-  .main-menu.el-menu {
-    display: flex;
-    width: 100%;
-    overflow-x: auto;
-  }
-
-  .main-menu .el-menu-item {
-    height: 48px;
-    flex: 1 0 auto;
-    justify-content: center;
-    padding: 0 12px;
+  .main-nav a {
+    padding: 22px 10px 21px;
   }
 }
 </style>
