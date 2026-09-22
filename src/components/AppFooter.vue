@@ -9,8 +9,8 @@
         <strong>星瞳</strong>
         <span>修改版可视化浏览平台</span>
       </div>
-      <p>课程实践项目 · 本地 TLE 数据仅用于卫星位置和轨道计算</p>
-      <p>Vue · Cesium · satellite.js</p>
+      <p>课程实践项目 · 页面数据仅用于卫星信息展示</p>
+      <p>Vue · HTML · CSS</p>
     </div>
   </footer>
 </template>
