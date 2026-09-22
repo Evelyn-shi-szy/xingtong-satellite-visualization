@@ -3,6 +3,7 @@
  * 文件作用：设置全站深蓝背景、字体、基础布局和通用元素样式。
  * 引用知识：CSS 变量、Flex 布局、响应式媒体查询。
  */
+/* 全站颜色变量，方便统一修改深蓝背景、文字和高亮颜色。 */
 :root {
   --bg: #030914;
   --panel: #071426;
@@ -20,6 +21,7 @@ html {
   scroll-behavior: smooth;
 }
 
+/* 页面基础字体、背景和最小尺寸。 */
 body {
   min-width: 320px;
   min-height: 100vh;
@@ -46,6 +48,7 @@ a {
   overflow: hidden;
 }
 
+/* 使用径向渐变和 CSS 星点绘制全屏太空背景。 */
 .space-bg {
   position: fixed;
   inset: 0;
@@ -67,6 +70,7 @@ a {
   mask-image: linear-gradient(to bottom, black, transparent 78%);
 }
 
+/* 页面主体宽度、顶部留白和最小高度。 */
 .page-shell {
   width: min(1440px, calc(100% - 48px));
   min-height: calc(100vh - 152px);
@@ -97,8 +101,10 @@ a {
   background: rgba(98, 243, 255, .55);
 }
 
+/* 小屏幕下缩小左右边距和顶部留白。 */
 @media (max-width: 760px) {
-  .page-shell {
+  /* 页面主体宽度、顶部留白和最小高度。 */
+.page-shell {
     width: calc(100% - 28px);
     padding-top: 88px;
   }

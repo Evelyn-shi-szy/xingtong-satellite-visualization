@@ -1,14 +1,22 @@
+<!--
+  [文件说明]
+  文件作用：页面底部说明栏，展示项目名称、数据说明和技术栈。
+-->
 <template>
   <footer class="site-footer">
     <div class="footer-inner">
-      <div class="footer-brand"><strong>星瞳</strong><span>卫星可视化浏览平台</span></div>
-      <p>课程实践项目 · 本地 TLE 数据仅用于课堂演示</p>
+      <div class="footer-brand">
+        <strong>星瞳</strong>
+        <span>修改版可视化浏览平台</span>
+      </div>
+      <p>课程实践项目 · 本地 TLE 数据仅用于卫星位置和轨道计算</p>
       <p>Vue · Cesium · satellite.js</p>
     </div>
   </footer>
 </template>
 
 <script>
+// 页脚只展示静态说明，因此不需要业务逻辑。
 export default { name: 'AppFooter' }
 </script>
 
@@ -47,6 +55,7 @@ export default { name: 'AppFooter' }
 }
 
 @media (max-width: 760px) {
+  /* 小屏幕下页脚改为纵向排列，避免文字拥挤。 */
   .footer-inner {
     align-items: flex-start;
     flex-direction: column;

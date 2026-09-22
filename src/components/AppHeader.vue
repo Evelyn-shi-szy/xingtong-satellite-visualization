@@ -1,7 +1,14 @@
+<!--
+  [文件说明]
+  文件作用：全站顶部品牌栏。
+  说明：本项目只保留卫星可视化页面，因此导航栏不设置多个页面入口。
+-->
 <template>
   <header class="site-header">
+    <!-- 点击品牌可以回到唯一的卫星可视化页面。 -->
     <div class="header-inner">
-      <router-link to="/visualize" class="brand" aria-label="星瞳卫星可视化首页">
+      <router-link to="/visualize" class="brand" aria-label="星瞳修改版可视化浏览平台首页">
+        <!-- 使用普通 HTML 与 CSS 绘制卫星标志，不依赖图片文件。 -->
         <span class="brand-mark" aria-hidden="true">
           <span class="brand-core"></span>
           <span class="brand-orbit"></span>
@@ -9,7 +16,7 @@
         </span>
         <span class="brand-text">
           <strong>星瞳</strong>
-          <small>卫星可视化浏览平台</small>
+          <small>修改版可视化浏览平台</small>
         </span>
       </router-link>
     </div>
@@ -17,10 +24,12 @@
 </template>
 
 <script>
+// 顶部栏只展示品牌，不需要额外的数据或方法。
 export default { name: 'AppHeader' }
 </script>
 
 <style scoped>
+/* 固定顶部栏，并使用半透明背景和模糊效果。 */
 .site-header {
   position: fixed;
   top: 0;
@@ -46,6 +55,7 @@ export default { name: 'AppHeader' }
   gap: 12px;
 }
 
+/* 品牌标志由核心星球、运行轨道和卫星点三部分组成。 */
 .brand-mark {
   position: relative;
   display: block;
@@ -105,6 +115,7 @@ export default { name: 'AppHeader' }
 }
 
 @media (max-width: 720px) {
+  /* 手机端缩短顶部栏，并隐藏较长的副标题。 */
   .header-inner {
     width: calc(100% - 28px);
     height: 66px;
